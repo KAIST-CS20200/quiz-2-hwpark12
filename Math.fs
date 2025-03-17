@@ -1,4 +1,4 @@
-﻿module CS220.Quiz1.Math
+module CS220.Quiz1.Math
 
 open System
 
@@ -6,4 +6,9 @@ open System
 /// 32-bit integer, and returns the number of steps it takes to reach 1 in the
 /// Collatz sequence.
 let collatz n =
-  0
+  let rec f n s =
+    if n=1 then s
+    else
+      if n%2=0 then f (n/2) (s+1)
+      else f (n*3+1) (s+1)
+  f n 0
